@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Админ Панел</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="photos.html">Снимки</a></li>
+                <li><a href="reservations.html">Резервации</a></li>
+                <li><a href="location.html">Локация</a></li>
+                <li><a href="admin.html">Админ панел</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Админ Вход</h1>
+        <form id="loginForm">
+            <label for="email">Имейл:</label>
+            <input type="email" id="email" required>
+            <label for="password">Парола:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Вход</button>
+        </form>
+
+        <div id="adminPanel" style="display:none;">
+            <h2>Направени резервации</h2>
+            <ul id="reservationsList"></ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Апартамент Акапулко</p>
+    </footer>
+
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        const adminPanel = document.getElementById("adminPanel");
+        const reservationsList = document.getElementById("reservationsList");
+
+        const adminEmail = "akapulkoapart@gmail.com";
+        const adminPassword = "Ivailo2004";
+
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (email === adminEmail && password === adminPassword) {
+                loginForm.style.display = "none";
+                adminPanel.style.display = "block";
+                loadReservations();
+            } else {
+                alert("Невалиден имейл или парола!");
+            }
+        });
+
+        function loadReservations() {
+            const reservations = JSON.parse(localStorage.getItem("reservations") || "[]");
+            reservationsList.innerHTML = "";
+
+            if (reservations.length === 0) {
+                reservationsList.innerHTML = "<li>Няма резервации.</li>";
+                return;
+            }
+
+            reservations.forEach((res, index) => {
+                const li = document.createElement("li");
+                li.textContent = `Начална дата: ${res.start}, Крайна дата: ${res.end}, Телефон: ${res.phone || 'няма'}`;
+                
+                const delBtn = document.createElement("button");
+                delBtn.textContent = "Изтрий";
+                delBtn.style.marginLeft = "10px";
+                delBtn.onclick = () => {
+                    deleteReservation(index);
+                };
+
+                li.appendChild(delBtn);
+                reservationsList.appendChild(li);
+            });
+        }
+
+        function deleteReservation(index) {
+            const reservations = JSON.parse(localStorage.getItem("reservations") || "[]");
+            reservations.splice(index, 1);
+            localStorage.setItem("reservations", JSON.stringify(reservations));
+            loadReservations();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Акапулко - Начало</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
+    <script>
+      // Вашата Firebase конфигурация
+      const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID",
+        measurementId: "YOUR_MEASUREMENT_ID"
+      };
+
+      // Инициализиране на Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="photos.html">Снимки</a></li>
+                <li><a href="reservations.html">Резервации</a></li>
+                <li><a href="location.html">Локация</a></li>
+                <li><a href="admin.html">Админ панел</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="content-box">
+            <section>
+                <h1>Добре дошли в Апартамент Акапулко!</h1>
+                </div>
+                <p>За Резервации: 0878796899 </p>
+                <p> Ако желаете спокойствие и уют сте на правилното място. С капацитет 2+2 човека, стилно и комфортно обзаведен отваря врати за първи път за Вас през лятото 2025 г.</p>
+                <p> Апартамента се намира в град Черноморец. На тиха и спокойна улица, на която няма шумни заведения. Но същевременно е само на 400 м от централния праж в града и 500 м от главната търговска улица. Мястото е атрактивно и с близостта си и до едни от най-красивите плажове на Българското Черноморие.</p>
+
+                <p> Апартамент Акапулко разполага с Просторна дневна с кухненски бокс, спалня, антре и баня с тоалетна и две тераси. Оборудван е с хладилник, фурна, котлони, микровълнова печка, тостер, кафе машина, ел. кана, посуда, пералня, смарт телевизори, климатици, комфортен и удобен Ъглов Диван за пълноценен релакс, трапезна маса със столове, спалня с висококачествен матрак, Wi-Fi. Разполагате също и със сгъваемо легло и топ матрак за дивана.</p>
+            </section>
+        </div>
+      </main>
+   
+    <footer>
+        <p>&copy; 2025 Апартамент Акапулко</p>
+    </footer>
+</body>
+</html>

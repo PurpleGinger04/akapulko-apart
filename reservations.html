@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Резервации</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="photos.html">Снимки</a></li>
+                <li><a href="reservations.html">Резервации</a></li>
+                <li><a href="location.html">Локация</a></li>
+                <li><a href="admin.html">Админ панел</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Резервации</h1>
+        <form id="reservationForm">
+            <label for="start-date">Начална дата:</label>
+            <input type="date" id="start-date" name="start-date" required>
+
+            <label for="end-date">Крайна дата:</label>
+            <input type="date" id="end-date" name="end-date" required>
+
+            <label for="phone">Телефонен номер:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <button type="submit">Резервирай</button>
+        </form>
+        <p id="successMsg" style="color:green;"></p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Апартамент Акапулко</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("reservationForm");
+        const successMsg = document.getElementById("successMsg");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const start = document.getElementById("start-date").value;
+            const end = document.getElementById("end-date").value;
+            const phone = document.getElementById("phone").value;
+
+            if (!start || !end || !phone) {
+                alert("Моля, попълнете всички полета!");
+                return;
+            }
+
+            const reservation = { start, end, phone, timestamp: new Date().toISOString() };
+
+            const reservations = JSON.parse(localStorage.getItem("reservations") || "[]");
+            reservations.push(reservation);
+            localStorage.setItem("reservations", JSON.stringify(reservations));
+
+            successMsg.textContent = "Успешно изпратена резервация!";
+            form.reset();
+        });
+    </script>
+</body>
+</html>

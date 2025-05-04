@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Снимки - Акапулко</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .gallery a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Play икона върху видеото */
+        .video-thumb {
+            position: relative;
+        }
+
+        .video-thumb::after {
+            content: '▶';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: white;
+            text-shadow: 0 0 10px black;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="photos.html">Снимки</a></li>
+                <li><a href="reservations.html">Резервации</a></li>
+                <li><a href="location.html">Локация</a></li>
+                <li><a href="admin.html">Админ панел</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Галерия</h1>
+        <div class="gallery">
+             <!-- Видео с popup -->
+             <a href="pictures/DJI_20250417134110_0003_D_2.mp4" class="glightbox video-thumb" data-type="video" data-gallery="akapulko">
+                <img src="pictures/др 1.jpg" alt="Видео тур">
+            </a>
+         
+            <a href="pictures/snimka1.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka1.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka2.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka2.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka3.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka3.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka4.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka4.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka5.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka5.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka6.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka6.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka7.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka7.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka8.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka8.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka9.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka9.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka10.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka10.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka11.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka11.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka12.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka12.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka13.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka13.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka14.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka14.jpg" alt="Снимка 1">
+            </a>
+            <a href="pictures/snimka15.jpg" class="glightbox" data-gallery="akapulko" data-title="Снимка 1">
+                <img src="pictures/snimka15.jpg" alt="Снимка 1">
+            </a>
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Апартамент Акапулко</p>
+    </footer>
+
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        const lightbox = GLightbox({
+            selector: '.glightbox'
+        });
+    </script>
+</body>
+</html>
